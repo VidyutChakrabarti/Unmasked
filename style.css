@@ -120,3 +120,31 @@ body {
     padding-left: 100%;
     animation: ticker 20s linear infinite;
 }
+
+
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Container styling for result sections (styled like newspaper boxes) */
+.result-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.result-header {
+    font-family: 'News Cycle', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
