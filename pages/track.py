@@ -14,6 +14,22 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+# Sidebar: Image insertion and Cyber Official Guide
+with st.sidebar:
+    # Insert your image here by replacing 'path_to_image.png' with the actual image file path or URL.
+    st.image("aibot.png", caption="Cyber Tracking Dashboard", width=200)
+    st.markdown("""
+    ## Cyber Guide
+
+    **Hello, Cyber Defender!**
+
+    - **Track:** Start Flask and use the Ngrok link as a hyperlink sent to ther user.
+    - **Monitor:** Check live logs for their location.
+    - **Act:** Know if they use VPN or proxy according to fluctuating locations.
+
+    **Note:** Use responsibly.
+    """)
+
 
 # Function to start Flask in background with unbuffered output
 def start_flask():
