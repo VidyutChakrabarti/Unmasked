@@ -14,21 +14,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-with st.sidebar:
-    # Insert your image here by replacing 'path_to_image.png' with the actual image file path or URL.
-    st.image("aibot.png", caption="Cyber Tracking Dashboard", width=200)
-    st.markdown("""
-    ## Cyber Guide
-
-    **Hello, Cyber Defender!**
-
-    - **Track:** Start Flask and use the Ngrok link as a hyperlink sent to ther user.
-    - **Monitor:** Check live logs for their location.
-    - **Act:** Know if they use VPN or proxy according to fluctuating locations.
-
-    **Note:** Use responsibly.
-    """)
-
 
 # Function to start Flask in background with unbuffered output
 def start_flask():
@@ -44,7 +29,7 @@ def start_flask():
 def get_logs(process):
     logs = []
     while True:
-        line = process.stdout.readline()  # Read line-by-line
+        line = process.stdout.readline()
         if not line:
             continue  # Wait for new logs
         line = line.strip()
@@ -52,6 +37,12 @@ def get_logs(process):
         if len(logs) > 10:  # Keep only the last 10 log entries
             logs.pop(0)
         yield logs
+
+# Streamlit UI
+st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<h1 style="font-family: 'Cinzel', serif;">Flask Tracking App with Ngrok</h1>
+""", unsafe_allow_html=True)
 
 # Start Flask App
 st.subheader("Starting Flask Server... ⏳")
@@ -76,4 +67,7 @@ for logs in get_logs(flask_process):
     if logs:
         df_logs = pd.DataFrame({"Logs": logs})
         log_container.table(df_logs)
+
+# Stop Flask on app exit
+st.warning("To stop Flask and Ngrok, close this Streamlit app.")
 
