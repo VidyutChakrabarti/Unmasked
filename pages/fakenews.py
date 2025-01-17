@@ -13,6 +13,11 @@ st.set_page_config(layout="wide", page_title='News Validator', page_icon='logo.j
 with open("style2.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+
+with open("news_slider.html", "r", encoding="utf-8") as f:
+    news_html = f.read()
+components.html(news_html, height=650, width=1500, scrolling=False)
+
 # DeepSeek API Key
 DEEPSEEK_API_KEY = ""
 
@@ -129,5 +134,3 @@ with st.form(key = "news_form"):
                     st.markdown(f"**🔐 Confidence Level:**")
                     st.progress(confidence/100)
                     st.caption(f"{confidence}% confidence in this assessment")
-                    
-                   
