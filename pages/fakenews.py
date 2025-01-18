@@ -134,3 +134,24 @@ with st.form(key = "news_form"):
                     st.markdown(f"**🔐 Confidence Level:**")
                     st.progress(confidence/100)
                     st.caption(f"{confidence}% confidence in this assessment")
+                    
+                    # Sources Expandable Section
+                    if sources:
+                        with st.expander(f"📚 View Verification Sources ({len(sources)})"):
+                            for idx, source in enumerate(sources, 1):
+                                st.markdown(f"{idx}. {source}")
+                    else:
+                        st.warning("⚠️ No verification sources available")
+
+                    # Detailed Report Expandable
+                    with st.expander("🔍 Detailed Analysis Report"):
+                        st.markdown(f"**News Content Excerpt:**")
+                        st.caption(content[:500] + "..." if len(content) > 500 else content)
+                        
+                        st.markdown("**Analysis Methodology:**")
+                        st.write("""
+                        - Semantic analysis of headline vs content
+                        - Cross-verification with trusted news databases
+                        - Source credibility evaluation
+                        - Historical accuracy check
+                        """)
