@@ -8,6 +8,11 @@ import os
 from tensorflow.keras.applications.inception_v3 import preprocess_input
 
 
+# Set page config
+st.set_page_config(page_title="Deepfake Detection", layout="wide", page_icon = 'logo.jpg')
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 # Custom CSS for styling
 st.markdown("""
 <style>
@@ -135,6 +140,17 @@ def predict_video(model, video_path):
         predicted_label = 'REAL'
         probability = 1 - probability
     return original_frames, predicted_label, probability
+
+# Streamlit UI
+st.markdown("""
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # Apply custom title style
 st.markdown('<h1 class="title">Deepfake Detection</h1>', unsafe_allow_html=True)
