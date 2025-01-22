@@ -45,6 +45,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Load model once
+@st.cache_resource
 def load_model():
     model_path = 'deepfake_detection_model.h5'
     return tf.keras.models.load_model(model_path)
@@ -239,3 +241,7 @@ with right_column:
                     {predicted_label}
                 </div>
             """, unsafe_allow_html=True)
+
+            # Confidence slider with percentage
+            st.markdown("**Confidence Level:**")
+            st.slider("Prediction Confidence", 0.0, 1.0, confidence, format="%.2f", disabled=True)
