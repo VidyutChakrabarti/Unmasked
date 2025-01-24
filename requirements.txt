@@ -1,0 +1,15 @@
+beautifulsoup4==4.13.4
+dlib==19.24.2
+Flask==3.1.1
+numpy==2.3.0
+openai==1.86.0
+opencv_python==4.10.0.84
+opencv_python_headless==4.10.0.84
+pandas==2.3.0
+pyngrok==7.2.3
+regex==2023.12.25
+Requests==2.32.4
+streamlit==1.37.1
+streamlit_extras==0.7.1
+tensorflow==2.17.0
+tensorflow_intel==2.17.0
