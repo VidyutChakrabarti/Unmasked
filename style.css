@@ -1,0 +1,67 @@
+/* style.css */
+
+/* Import Google Fonts for vintage style */
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle&family=Merriweather&display=swap');
+
+/* Sidebar styling (from original) */
+[data-testid="stSidebar"][aria-expanded="true"] {
+    min-width: 0px;
+    max-width: 245px;
+}
+
+/* Gradient animation for headline text */
+@keyframes gradient-move {
+    0% {
+        background-position: 200% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #ff3300, #7bfcfe, #ff7e5f);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move 5s linear infinite;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Container padding (from original) */
+.main .block-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: rgba(16, 1, 87, 0.527);
+}
+
+/* iFrame height adjustments (from original) */
+iframe {
+    max-height: 690px;
+}
+
+@media (max-width: 575px) {
+    iframe {
+        max-height: 590px;
+    }
+}
+
+
+[data-testid="stForm"] {
+    background-color: rgba(199, 143, 255, 0.935);
+    border: 2px solid rgb(255, 255, 255);
+    padding-top: 30px;
+    /* Adjust as needed */
+    padding-bottom: 30px;
+    /* Adjust as needed */
+}
+
+/* Button styling (from original) */
+.stButton button {
+    border: 2px solid white;
+}
