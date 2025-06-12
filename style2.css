@@ -23,3 +23,27 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Merriweather', serif;
 }
+
+.controls-container {
+    background-color: #80ecff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Merriweather', serif;
+}
+
+iframe {
+    max-height: 600px;
+    max-width: 1420px;
+}
+
+[data-testid="stForm"] {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
+    padding-left: 30px;
+    /* Adjust as needed */
+    padding-right: 30px;
+    /* Adjust as needed */
+}
