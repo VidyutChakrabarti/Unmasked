@@ -47,3 +47,28 @@ iframe {
     padding-right: 30px;
     /* Adjust as needed */
 }
+
+.stButton button {
+    border: 2px solid white;
+}
+
+@keyframes borderMove {
+    0% {
+        border-image: linear-gradient(0deg, #00ef9f, #5ffaff, #fd0866, #8d3cff) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(180deg, #00ef9f, #5ffaff, #fd0866, #8d3cff) 1;
+    }
+
+    100% {
+        border-image: linear-gradient(360deg, #00ef9f, #5ffaff, #fd0866, #8d3cff) 1;
+    }
+}
+
+#text_area_1 {
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image: linear-gradient(90deg, #00ef9f, #5ffaff, #fd0866, #8d3cff) 1;
+    animation: borderMove 3s linear infinite;
+}
