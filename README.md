@@ -55,7 +55,7 @@ Unmasked is a next-generation digital forensics toolkit for detecting deepfake v
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/VidyutChakrabarti/Unmasked.git
    cd Unmasked
    ```
 2. **Install Python dependencies**
