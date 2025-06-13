@@ -1,123 +1,157 @@
 ## Unmasked
 
-Unmasked is a comprehensive application for detecting deepfake videos, validating news authenticity, and tracking suspicious user activity. It leverages advanced AI models and agentic solutions to provide robust tools for digital forensics, media verification, and cyber investigation.
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org)
+[![Streamlit](https://img.shields.io/badge/streamlit-v1.0-orange)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/license-MIT-green)](#license)
 
-### Features
+Unmasked is a next-generation digital forensics toolkit for detecting deepfake videos, validating news authenticity, and monitoring suspicious user activity. Powered by state-of-the-art AI models and seamless integrations, Unmasked empowers journalists, researchers, and cybersecurity professionals to verify digital content with confidence.
 
-- **Deepfake Detection:**  
-  Upload a video to determine if it is real or fake using a trained deep learning model.
+---
 
-- **Fake News Validation:**  
-  Enter a news article URL to check its authenticity using AI-powered fact-checking and cross-referencing with trusted sources.
+## Table of Contents
 
-- **User Tracking:**  
-  Generate a tracking link to monitor user location and activity via a Flask server and Ngrok tunnel.
+1. [Key Features](#key-features)
+2. [Demo Gallery](#demo-gallery)
+3. [Installation](#installation)
+4. [Usage](#usage)
 
-- **Interactive Dashboard:**  
-  Modern, responsive interface with carousels, video previews, and real-time logs.
+   * [Deepfake Detection](#deepfake-detection)
+   * [Fake News Validation](#fake-news-validation)
+   * [User Activity Tracking](#user-activity-tracking)
+5. [Project Structure](#project-structure)
+6. [Configuration](#configuration)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-  ### Gallery:
+---
+
+## Key Features
+
+* **Deepfake Detection**
+  Upload videos (MP4, ≤10MB) to analyze authenticity using a custom TensorFlow deep learning model.
+
+* **Fake News Validation**
+  Validate news articles via AI-driven fact-checking, cross-referencing with trusted outlets.
+
+* **User Activity Tracking**
+  Generate secure tracking links (via Flask + Ngrok) to monitor location and interaction logs in real-time.
+
+* **Interactive Dashboard**
+  Responsive Streamlit interface with carousels, video previews, and live logs.
+
+* **Modular & Extensible**
+  Add custom modules or integrate external APIs with minimal effort.
+
+---
+
+## Demo Gallery
 
 ![Demo](gallery.gif)
 
-### Requirements
+---
 
-- Python 3.8 or higher
-- [Streamlit](https://streamlit.io/)
-- [Flask](https://flask.palletsprojects.com/)
-- [Ngrok](https://ngrok.com/) (Python package: `pyngrok`)
-- TensorFlow
-- OpenAI Python SDK
-- dlib, OpenCV, numpy, pandas, requests, beautifulsoup4, lxml, regex, streamlit-extras
+## Installation
 
-Install all dependencies using:
+1. **Clone the repository**
 
-```sh
-pip install -r requirements.txt
-```
+   ```bash
+   git clone <repository-url>
+   cd Unmasked
+   ```
+2. **Install Python dependencies**
 
-> **Note:**  
-> You may need to install system dependencies for `dlib` and `opencv-python` depending on your OS.
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Install system prerequisites**
+
+   * For **dlib** and **opencv-python**, follow your OS-specific install guides.
+   * Ensure `ffmpeg` is available in your `PATH` for video processing.
+
+---
+
+## Usage
+
+### Deepfake Detection
+
+1. Place the model file in `Model/deepfake_detection_model.h5`.
+2. Run the app:
+
+   ```bash
+   streamlit run unmasked.py
+   ```
+3. Navigate to **Deepfake** page, upload your video, and view results.
+
+### Fake News Validation
+
+1. Go to **News Validator** page.
+2. Enter the article URL and submit.
+3. Review AI-powered authenticity score and source comparisons.
+
+### User Activity Tracking
+
+1. Open **Track** page.
+2. Start the Flask server and generate an Ngrok link:
+
+   ```bash
+   python app.py  # launches Flask & Ngrok
+   ```
+3. Share the link to collect activity logs securely.
+
+---
 
 ## Project Structure
 
-```
+```plaintext
 .
-├── app.py
-├── unmasked.py
-├── pages/
+├── app.py                        # Entry point for tracking service
+├── unmasked.py                   # Main Streamlit application
+├── pages/                        # Streamlit multipage modules
 │   ├── deepfake.py
 │   ├── fakenews.py
 │   └── track.py
-├── Model/
+├── Model/                        # Pretrained models
 │   └── deepfake_detection_model.h5
-├── style.css
-├── style2.css
-├── news_slider.html
-├── placeholder_image.png
-├── aibot.png
-├── logo.jpg
-├── gallery.gif
-├── .streamlit/
-│   └── config.toml
+├── assets/                       # Static assets (CSS, images)
+│   ├── style.css
+│   ├── style2.css
+│   ├── placeholder_image.png
+│   ├── aibot.png
+│   └── logo.jpg
+├── news_slider.html              # News carousel template
+├── gallery.gif                   # Demo animation
+├── requirements.txt              # Python dependencies
+├── .streamlit/config.toml        # Streamlit settings
 ├── .gitignore
-├── .gitattributes
 └── README.md
 ```
 
-### How to Run
+---
 
-1. **Clone the repository and navigate to the project directory:**
+## Configuration
 
-    ```sh
-    git clone <repository-url>
-    cd Unmasked
-    ```
+* **API Keys**: Store sensitive keys (OpenAI, NewsAPI) as environment variables:
 
-2. **Install all required Python packages:**
+  ```bash
+  export OPENAI_API_KEY="your_key"
+  export NEWSAPI_KEY="your_key"
+  ```
+* **Streamlit settings**: Customize in `.streamlit/config.toml`.
 
-    ```sh
-    pip install -r requirements.txt
-    ```
+---
 
-3. **Ensure the deepfake detection model file is present:**
+## Contributing
 
-    - Place `deepfake_detection_model.h5` in the `Model` directory.
+Contributions are welcome! Please:
 
-4. **Start the application:**
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m "Add new feature"`)
+4. Push to your branch (`git push origin feature-name`)
+5. Open a Pull Request
 
-    - On Windows, you can use the provided batch script:
+---
 
-        ```sh
-        startapp.bat
-        ```
+## License
 
-    - Or manually run Streamlit:
-
-        ```sh
-        streamlit run unmasked.py
-        ```
-
-5. **Access the application:**
-
-    - Open your browser and go to the local Streamlit URL (typically `http://localhost:8501`).
-
-6. **Using the Features:**
-
-    - **Deepfake Detection:**  
-      Navigate to the Deepfake page and upload a video file (MP4 format, max 10MB).
-
-    - **Fake News Validation:**  
-      Go to the News Validator page and enter a news article URL.
-
-    - **User Tracking:**  
-      Use the Track page to start the Flask server and generate a tracking link. Share the link to monitor user activity.
-
-### Configuration
-- The application uses `.streamlit/config.toml` for Streamlit settings.
-- API keys (such as for OpenAI or DeepSeek) should be set in the relevant Python files or via environment variables.
-
-### Notes
-- For the tracking feature, Ngrok is used to expose the local Flask server to the internet.
-- The news carousel uses NewsAPI; you may need to provide your own API key in `news_slider.html`.
-- The application is intended for research and educational purposes. Use tracking features responsibly and in compliance with applicable laws.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
