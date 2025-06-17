@@ -2,7 +2,6 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org)
 [![Streamlit](https://img.shields.io/badge/streamlit-v1.0-orange)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/license-MIT-green)](#license)
 
 Unmasked is a next-generation digital forensics toolkit for detecting deepfake videos, validating news authenticity, and monitoring suspicious user activity. Powered by state-of-the-art AI models and seamless integrations, Unmasked empowers journalists, researchers, and cybersecurity professionals to verify digital content with confidence.
 
@@ -139,19 +138,3 @@ Unmasked is a next-generation digital forensics toolkit for detecting deepfake v
 * **Streamlit settings**: Customize in `.streamlit/config.toml`.
 
 ---
-
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit your changes (`git commit -m "Add new feature"`)
-4. Push to your branch (`git push origin feature-name`)
-5. Open a Pull Request
-
----
-
-## License
-
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
